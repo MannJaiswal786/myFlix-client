@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
@@ -7,13 +8,21 @@ import { MovieView } from '../movie-view/movie-view';
     constructor(){
         super();
         this.state = {
-            movies: [
-                { _id: 1, Title: 'Zodiac', Description: 'Movie1', ImagePath: '...', Genre: 'Thriller', Director: 'David Fincher'},
-                { _id: 2, Title: 'Taxi Driver', Description: 'Movie2', ImagePath: '...', Genre: 'Drama', Director: 'Martin Scorsese'},
-                { _id: 3, Title: 'Avatar', Description: 'Movie3', ImagePath: '...', Genre: 'Animation', Director: 'James Cameron'},
-            ],
+            movies: [],
             selectedMovie: null
         };
+    }
+
+    componentDidMount(){
+      axios.get('https://downtown-cinema.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error=>{
+        console.log(error);
+      });
     }
 
     setSelectedMovie(newSelectedMovie){
@@ -27,7 +36,7 @@ import { MovieView } from '../movie-view/movie-view';
         const {movies, selectedMovie} = this.state;
 
         if (movies.length === 0)
-         return <div className="main-view">The list is empty!</div>;
+         return <div className="main-view" />;
          
           return (
             <div className="main-view">
@@ -35,7 +44,7 @@ import { MovieView } from '../movie-view/movie-view';
         ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
              :movies.map(movie => (
              <MovieCard key={movie._id} movie={movie} onMovieClick
-              ={(movie) => {this.setSelectedMovie(movie)}} />
+              ={(newSelectedMovie) => {this.setSelectedMovie(newSelectedMovie)}} />
               ))
               }
             </div>
