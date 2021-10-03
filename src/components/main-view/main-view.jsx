@@ -30,9 +30,9 @@ class MainView extends React.Component {
 
   /* When a movie is clicked, this function is invoked and updates the 
   state of the 'selectedMovie' *property to that movie */
-  setSelectedMovie(movie) {
+  setSelectedMovie(newSelectedMovie) {
     this.setState({
-      selectedMovie: movie,
+      selectedMovie: newSelectedMovie,
     });
   }
 
