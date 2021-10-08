@@ -24634,7 +24634,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         type: "date",
                         value: birthdate,
-                        onChange: (e)=>setBirthdate(e.target.value)
+                        onChange: (e)=>setBorn(e.target.value)
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
@@ -25494,7 +25494,7 @@ class MovieCard extends _reactDefault.default.Component {
         }));
     }
 }
-MovieCard.PropTypes = {
+MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
