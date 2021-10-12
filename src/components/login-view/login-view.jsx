@@ -13,6 +13,11 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
+  const handleRegistration = (e) => {
+    console.log(username);
+    props.onRegisterClick(true);
+  };
+
   return (
     <form>
       <label>
@@ -34,14 +39,18 @@ export function LoginView(props) {
       <button type="submit" onClick={handleSubmit}>
         Submit
       </button>
+      <button
+        className="registerBtn"
+        type="button"
+        onClick={handleRegistration}
+      >
+        Register
+      </button>
     </form>
   );
 }
 
 LoginView.propTypes = {
-  user: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-  }),
-  onLoggedIn: PropTypes.func.isRequired,
+  onRegisterClick: PropTypes.func,
+  onLoggedIn: PropTypes.func,
 };

@@ -64,12 +64,6 @@ export function RegistrationView(props) {
 }
 
 RegistrationView.PropTypes = {
-  register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Born: PropTypes.string.isRequired,
-  }),
-  onRegistration: PropTypes.func.isRequired,
-  onLoginCLick: PropTypes.func.isRequired,
+  onLoginClick: PropTypes.func,
+  onRegistration: PropTypes.func,
 };

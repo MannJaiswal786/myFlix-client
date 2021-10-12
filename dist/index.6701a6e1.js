@@ -22906,7 +22906,7 @@ class MainView extends _reactDefault.default.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null,
+            user: "",
             register: true
         };
     }
@@ -22926,17 +22926,19 @@ class MainView extends _reactDefault.default.Component {
     }
     /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ onLoggedIn(user) {
         this.setState({
-            user
+            user: user
         });
     }
     onRegistration(register) {
         this.setState({
-            register
+            register: !register
         });
     }
     render() {
         const { movies , selectedMovie , user , register  } = this.state;
         if (!register) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
+            onLoginClick: (register1)=>this.onRegistration(register1)
+            ,
             onRegistration: (register1)=>this.onRegistration(register1)
             ,
             __source: {
@@ -22945,12 +22947,14 @@ class MainView extends _reactDefault.default.Component {
             },
             __self: this
         }));
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (user === "") return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+            onRegistrationClick: (register1)=>this.onRegistration(register1)
+            ,
             onLoggedIn: (user1)=>this.onLoggedIn(user1)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 69
+                lineNumber: 71
             },
             __self: this
         }));
@@ -22959,7 +22963,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 72
+                lineNumber: 78
             },
             __self: this
         }));
@@ -22967,7 +22971,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 75
+                lineNumber: 81
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22977,7 +22981,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 78
+                    lineNumber: 84
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22987,7 +22991,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 86
+                        lineNumber: 92
                     },
                     __self: this
                 }, movie._id)
@@ -24675,14 +24679,8 @@ function RegistrationView(props) {
 _s(RegistrationView, "jcJG6qnpg1xROwc1AOOdN8/wLEE=");
 _c = RegistrationView;
 RegistrationView.PropTypes = {
-    register: _propTypesDefault.default.shape({
-        Username: _propTypesDefault.default.string.isRequired,
-        Password: _propTypesDefault.default.string.isRequired,
-        Email: _propTypesDefault.default.string.isRequired,
-        Born: _propTypesDefault.default.string.isRequired
-    }),
-    onRegistration: _propTypesDefault.default.func.isRequired,
-    onLoginCLick: _propTypesDefault.default.func.isRequired
+    onLoginClick: _propTypesDefault.default.func,
+    onRegistration: _propTypesDefault.default.func
 };
 var _c;
 $RefreshReg$(_c, "RegistrationView");
@@ -25397,17 +25395,21 @@ function LoginView(props) {
         console.log(username, password);
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
+    const handleRegistration = (e)=>{
+        console.log(username);
+        props.onRegisterClick(true);
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 17
+            lineNumber: 22
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 18
+                    lineNumber: 23
                 },
                 __self: this,
                 children: [
@@ -25419,7 +25421,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 20
+                            lineNumber: 25
                         },
                         __self: this
                     })
@@ -25428,7 +25430,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 26
+                    lineNumber: 31
                 },
                 __self: this,
                 children: [
@@ -25440,7 +25442,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 28
+                            lineNumber: 33
                         },
                         __self: this
                     })
@@ -25451,10 +25453,21 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 34
+                    lineNumber: 39
                 },
                 __self: this,
                 children: "Submit"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                className: "registerBtn",
+                type: "button",
+                onClick: handleRegistration,
+                __source: {
+                    fileName: "src/components/login-view/login-view.jsx",
+                    lineNumber: 42
+                },
+                __self: this,
+                children: "Register"
             })
         ]
     }));
@@ -25462,11 +25475,8 @@ function LoginView(props) {
 _s(LoginView, "Lrw7JeD9zj6OUWhT/IH4OIvPKEk=");
 _c = LoginView;
 LoginView.propTypes = {
-    user: _propTypesDefault.default.shape({
-        Username: _propTypesDefault.default.string.isRequired,
-        Password: _propTypesDefault.default.string.isRequired
-    }),
-    onLoggedIn: _propTypesDefault.default.func.isRequired
+    onRegisterClick: _propTypesDefault.default.func,
+    onLoggedIn: _propTypesDefault.default.func
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
