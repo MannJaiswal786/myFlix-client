@@ -7,12 +7,16 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [born, setBorn] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password, email, born);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
     props.onRegistration(username);
+  };
+
+  const handleLogin = (e) => {
+    props.onLoginCLick(false);
   };
 
   return (
@@ -52,6 +56,9 @@ export function RegistrationView(props) {
       <button className="registerBtn" type="submit" onClick={handleSubmit}>
         Register
       </button>
+      <button className="loginBtn" type="button" onClick={handleLogin}>
+        Login
+      </button>
     </form>
   );
 }
@@ -64,4 +71,5 @@ RegistrationView.PropTypes = {
     Born: PropTypes.string.isRequired,
   }),
   onRegistration: PropTypes.func.isRequired,
+  onLoginCLick: PropTypes.func.isRequired,
 };

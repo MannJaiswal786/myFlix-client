@@ -24544,15 +24544,18 @@ function RegistrationView(props) {
     const [password, setPassword] = _react.useState("");
     const [email, setEmail] = _react.useState("");
     const [born, setBorn] = _react.useState("");
-    const handleSubmit = ()=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(username, password, email, born);
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onRegistration(username);
     };
+    const handleLogin = (e)=>{
+        props.onLoginCLick(false);
+    };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
-            lineNumber: 20
+            lineNumber: 23
         },
         __self: this,
         children: [
@@ -24560,7 +24563,7 @@ function RegistrationView(props) {
                 className: "username",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 21
+                    lineNumber: 24
                 },
                 __self: this,
                 children: [
@@ -24572,7 +24575,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 23
+                            lineNumber: 26
                         },
                         __self: this
                     })
@@ -24582,7 +24585,7 @@ function RegistrationView(props) {
                 className: "password",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 29
+                    lineNumber: 32
                 },
                 __self: this,
                 children: [
@@ -24594,7 +24597,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 31
+                            lineNumber: 34
                         },
                         __self: this
                     })
@@ -24604,7 +24607,7 @@ function RegistrationView(props) {
                 className: "email",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 37
+                    lineNumber: 40
                 },
                 __self: this,
                 children: [
@@ -24616,7 +24619,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 39
+                            lineNumber: 42
                         },
                         __self: this
                     })
@@ -24626,7 +24629,7 @@ function RegistrationView(props) {
                 className: "birthdate",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 45
+                    lineNumber: 48
                 },
                 __self: this,
                 children: [
@@ -24638,7 +24641,7 @@ function RegistrationView(props) {
                         ,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 47
+                            lineNumber: 50
                         },
                         __self: this
                     })
@@ -24650,10 +24653,21 @@ function RegistrationView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 53
+                    lineNumber: 56
                 },
                 __self: this,
                 children: "Register"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                className: "loginBtn",
+                type: "button",
+                onClick: handleLogin,
+                __source: {
+                    fileName: "src/components/registration-view/registration-view.jsx",
+                    lineNumber: 59
+                },
+                __self: this,
+                children: "Login"
             })
         ]
     }));
@@ -24667,7 +24681,8 @@ RegistrationView.PropTypes = {
         Email: _propTypesDefault.default.string.isRequired,
         Born: _propTypesDefault.default.string.isRequired
     }),
-    onRegistration: _propTypesDefault.default.func.isRequired
+    onRegistration: _propTypesDefault.default.func.isRequired,
+    onLoginCLick: _propTypesDefault.default.func.isRequired
 };
 var _c;
 $RefreshReg$(_c, "RegistrationView");
