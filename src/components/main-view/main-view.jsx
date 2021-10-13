@@ -15,7 +15,7 @@ export default class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: "",
-      register: true,
+      register: null,
     };
   }
 
@@ -44,13 +44,13 @@ export default class MainView extends React.Component {
 
   onLoggedIn(user) {
     this.setState({
-      user: user,
+      user,
     });
   }
 
   onRegistration(register) {
     this.setState({
-      register: !register,
+      register,
     });
   }
 
@@ -60,19 +60,13 @@ export default class MainView extends React.Component {
     if (!register)
       return (
         <RegistrationView
-          onLoginClick={(register) => this.onRegistration(register)}
           onRegistration={(register) => this.onRegistration(register)}
         />
       );
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (user === "")
-      return (
-        <LoginView
-          onRegistrationClick={(register) => this.onRegistration(register)}
-          onLoggedIn={(user) => this.onLoggedIn(user)}
-        />
-      );
+      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
@@ -91,6 +85,7 @@ export default class MainView extends React.Component {
           movies.map((movie) => (
             <MovieCard
               key={movie._id}
+              d
               movie={movie}
               onMovieClick={(newSelectedMovie) => {
                 this.setSelectedMovie(newSelectedMovie);

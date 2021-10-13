@@ -5,18 +5,14 @@ export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [born, setBorn] = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, born);
+    console.log(username, password, email, birthdate);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
     props.onRegistration(username);
-  };
-
-  const handleLogin = (e) => {
-    props.onLoginCLick(false);
   };
 
   return (
@@ -46,24 +42,20 @@ export function RegistrationView(props) {
         />
       </label>
       <label className="birthdate">
-        Birth date:
+        Birthday:
         <input
           type="date"
           value={birthdate}
-          onChange={(e) => setBorn(e.target.value)}
+          onChange={(e) => setBirthdate(e.target.value)}
         />
       </label>
-      <button className="registerBtn" type="submit" onClick={handleSubmit}>
-        Register
-      </button>
-      <button className="loginBtn" type="button" onClick={handleLogin}>
-        Login
+      <button type="submit" onClick={handleSubmit}>
+        Submit
       </button>
     </form>
   );
 }
 
-RegistrationView.PropTypes = {
-  onLoginClick: PropTypes.func,
-  onRegistration: PropTypes.func,
+RegistrationView.propTypes = {
+  onRegistration: PropTypes.func.isRequired,
 };
