@@ -25634,7 +25634,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 35
                             },
                             __self: this,
-                            children: movie.Genre
+                            children: movie.Genre.Name
                         })
                     ]
                 }),
@@ -25662,7 +25662,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 39
                             },
                             __self: this,
-                            children: movie.Director
+                            children: movie.Director.Name
                         })
                     ]
                 }),
@@ -25697,6 +25697,6 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"j7t4X","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5aRQ2","prop-types":"1tgq3"}]},["cqWKE","3WWEG","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","@parcel/transformer-js/src/esmodule-helpers.js":"j7t4X","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5aRQ2"}]},["cqWKE","3WWEG","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
