@@ -22907,7 +22907,7 @@ class MainView extends _reactDefault.default.Component {
             movies: [],
             selectedMovie: null,
             user: "",
-            register: null
+            register: ""
         };
     }
     componentDidMount() {
