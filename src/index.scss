@@ -1,9 +1,10 @@
 $color: steelblue;
-
-.my-flix{
-    color: $color;
-}
+$black: black;
 
 .main-view{
-    background-color: $color;
+    background-color: $black;
+}
+
+.app-container{
+    background-color: $black;
 }
