@@ -1,8 +1,21 @@
 .main-view {
   background-color: black;
+  min-height: 100%;
 }
 
 .app-container {
-  background-color: black;
+  background-color: bisque;
+}
+
+html, body {
+  height: 100%;
+}
+
+.app-container {
+  min-height: 100vh;
+}
+
+.card-body {
+  background-color: cornsilk;
 }
 /*# sourceMappingURL=index.caa67093.css.map */
