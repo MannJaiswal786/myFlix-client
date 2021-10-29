@@ -2,13 +2,12 @@ $color: steelblue;
 $black: black;
 
 .main-view{
-    background-color: $black;
+    background-color: bisque;
     min-height: 100%;
-
 }
 
 .app-container{
-    background-color: bisque;
+    background-color: #f28890;
 }
 
 
@@ -24,3 +23,50 @@ html, body {
 .card-body{
     background-color: cornsilk;
 }
+
+.btn-success{
+    margin-top: 20px;
+}
+
+.registration, .loginform{
+    width: 500px;           /* Set this to your convenience */
+    height: 200px;          /* Set this to your convenience */
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin-top: 100px;     /* Half of height */
+    margin-left: -150px;     /* Half of width */
+    
+}
+
+.margin{
+    margin-top: 20px;
+}
+
+.card{
+    margin-top: 20px;
+    margin: 10px;
+}
+
+.btn-back{
+    margin-bottom: 20px;
+}
+
+.col-md-8{
+    margin-top: 20px;
+}
+
+.movie-view{
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+    margin: 20px;
+}
+
+.movie{
+margin: 10px;
+}
+
+
+
+

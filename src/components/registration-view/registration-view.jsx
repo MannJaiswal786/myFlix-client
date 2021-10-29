@@ -28,13 +28,13 @@ export function RegistrationView(props) {
     <Container>
       <Row>
         <Col>
-          <CardGroup>
-            <Card>
+          <CardGroup className="registration">
+            <Card className="text-center">
               <Card.Body>
                 <Card.Title>Please Register here!</Card.Title>
                 <Form>
                   <Form.Group>
-                    <Form.Label>Username:</Form.Label>
+                    <Form.Label className="margin">Username:</Form.Label>
                     <Form.Control
                       type="text"
                       value={username}
@@ -45,7 +45,7 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="margin">Password:</Form.Label>
                     <Form.Control
                       type="password"
                       value={password}
@@ -57,7 +57,7 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="margin">Email:</Form.Label>
                     <Form.Control
                       type="email"
                       value={email}
@@ -68,7 +68,7 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group>
-                    <Form.Label>Birthday</Form.Label>
+                    <Form.Label className="margin">Birthdate:</Form.Label>
                     <Form.Control
                       type="date"
                       value={birthdate}
@@ -76,7 +76,11 @@ export function RegistrationView(props) {
                       required
                     />
                   </Form.Group>
-                  <Button type="submit" variant="dark" onClick={handleSubmit}>
+                  <Button
+                    type="submit"
+                    variant="success"
+                    onClick={handleSubmit}
+                  >
                     Submit
                   </Button>
                 </Form>

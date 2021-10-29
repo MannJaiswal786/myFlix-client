@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "react-bootstrap/Button";
 
 export class MovieView extends React.Component {
   keypressCallback(event) {
@@ -18,33 +19,34 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
+      <div className="movie-view movie">
         <div className="movie-poster">
           <img src={movie.ImagePath} />
         </div>
-        <div className="movie-title">
+        <div className="movie-title movie">
           <span className="label"> Title: </span>
           <span className="value">{movie.Title}</span>
         </div>
-        <div className="movie-description">
+        <div className="movie-description movie">
           <span className="label">Description: </span>
           <span className="value">{movie.Description}</span>
         </div>
-        <div className="movie-genre">
+        <div className="movie-genre movie">
           <span className="label">Genre: </span>
           <span className="value">{movie.Genre.Name}</span>
         </div>
-        <div className="movie-director">
+        <div className="movie-director movie">
           <span className="label">Director: </span>
           <span className="value">{movie.Director.Name}</span>
         </div>
-        <button
+        <Button
+          className="btn-success btn-back"
           onClick={() => {
             onBackClick(null);
           }}
         >
           Back
-        </button>
+        </Button>
       </div>
     );
   }
