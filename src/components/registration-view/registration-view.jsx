@@ -9,6 +9,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+import axios from "axios";
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
@@ -18,10 +19,21 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthdate);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onRegistration(username);
+    axios
+      .post("https://downtown-cinema.herokuapp.com/users", {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthdate: birthdate,
+      })
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        window.open("/", "_self");
+      })
+      .catch((e) => {
+        console.log("error registering the user");
+      });
   };
 
   return (
