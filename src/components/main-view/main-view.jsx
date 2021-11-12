@@ -128,7 +128,7 @@ export default class MainView extends React.Component {
               // Before the movies have been loaded
               if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
-                <Col md={3} key={m._id}>
+                <Col md={4} key={m._id}>
                   <MovieCard movie={m} />
                 </Col>
               ));
