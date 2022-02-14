@@ -10,6 +10,7 @@ import {
   Row,
 } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -56,13 +57,18 @@ export function LoginView(props) {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
-                  <Button
-                    variant="success"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Submit
-                  </Button>
+                  <span>
+                    <Button
+                      variant="success"
+                      type="submit"
+                      onClick={handleSubmit}
+                    >
+                      Submit
+                    </Button>
+                    <Link to={`/registeration`}>
+                      <Button variant="success link">Register</Button>
+                    </Link>
+                  </span>
                 </Form>
               </Card.Body>
             </Card>

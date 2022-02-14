@@ -9,6 +9,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export function RegistrationView(props) {
@@ -93,7 +94,7 @@ export function RegistrationView(props) {
                     variant="success"
                     onClick={handleSubmit}
                   >
-                    Submit
+                    Register
                   </Button>
                 </Form>
               </Card.Body>
