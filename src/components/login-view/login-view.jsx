@@ -65,7 +65,7 @@ export function LoginView(props) {
                     >
                       Submit
                     </Button>
-                    <Link to={`/registeration`}>
+                    <Link to={`/registration`}>
                       <Button variant="success link">Register</Button>
                     </Link>
                   </span>

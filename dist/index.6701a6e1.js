@@ -39848,7 +39848,7 @@ function LoginView(props) {
                                                     children: "Submit"
                                                 }),
                                                 /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                                    to: `/registeration`,
+                                                    to: `/registration`,
                                                     __source: {
                                                         fileName: "src/components/login-view/login-view.jsx",
                                                         lineNumber: 68
