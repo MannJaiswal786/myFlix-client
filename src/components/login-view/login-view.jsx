@@ -41,6 +41,7 @@ export function LoginView(props) {
             <Card className="text-center">
               <Card.Body>
                 <Card.Title>Please Login Here!</Card.Title>
+
                 <Form>
                   <Form.Group controlId="formUsername">
                     <Form.Label>Username:</Form.Label>
@@ -65,9 +66,6 @@ export function LoginView(props) {
                     >
                       Submit
                     </Button>
-                    <Link to={`/registration`}>
-                      <Button variant="success link">Register</Button>
-                    </Link>
                   </span>
                 </Form>
               </Card.Body>

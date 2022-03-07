@@ -18,23 +18,63 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
 
+  const [usernameError, setUsernameError] = useState({});
+  const [passwordError, setPasswordError] = useState({});
+  const [emailError, setEmailError] = useState({});
+  const [birthdateError, setBirthdateError] = useState({});
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("https://downtown-cinema.herokuapp.com/users", {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthdate: birthdate,
-      })
-      .then((response) => {
-        const data = response.data;
-        console.log(data);
-        window.open("/", "_self");
-      })
-      .catch((e) => {
-        console.log("error registering the user");
-      });
+    let setisValid = formValidation();
+    if (setisValid) {
+      axios
+        .post("https://downtown-cinema.herokuapp.com/users", {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthdate: birthdate,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          window.open("/", "_self");
+        })
+        .catch((e) => {
+          console.log("error registering the user");
+        });
+    }
+  };
+
+  const formValidation = () => {
+    let usernameError = {};
+    let passwordError = {};
+    let emailError = {};
+    let birthdateError = {};
+    let isValid = true;
+
+    if (username.trim().length < 4) {
+      usernameError.usernameShort =
+        "Username incorrect. Use at least 4 characters.";
+      isValid = false;
+    }
+    if (password.trim().length < 5) {
+      passwordError.passwordMissing =
+        "Password incorrect. Use at least 5 characters.";
+      isValid = false;
+    }
+    if (!(email && email.includes(".") && email.includes("@"))) {
+      emailError.emailNotEmail = "Email address incorrect.";
+      isValid = false;
+    }
+    if (birthdate === "") {
+      birthdateError.birthdateEmpty = "Please enter your birthdate.";
+      isValid = false;
+    }
+    setUsernameError(usernameError);
+    setPasswordError(passwordError);
+    setEmailError(emailError);
+    setBirthdateError(birthdateError);
+    return isValid;
   };
 
   return (
@@ -55,6 +95,9 @@ export function RegistrationView(props) {
                       required
                       placeholder="Enter your username"
                     />
+                    {Object.keys(usernameError).map((key) => {
+                      return <div key={key}>{usernameError[key]}</div>;
+                    })}
                   </Form.Group>
 
                   <Form.Group>
@@ -67,6 +110,9 @@ export function RegistrationView(props) {
                       minLength="8"
                       placeholder="Password must be 8 or more characters"
                     />
+                    {Object.keys(passwordError).map((key) => {
+                      return <div key={key}>{passwordError[key]}</div>;
+                    })}
                   </Form.Group>
 
                   <Form.Group>
@@ -78,6 +124,9 @@ export function RegistrationView(props) {
                       required
                       placeholder="Enter your email"
                     />
+                    {Object.keys(emailError).map((key) => {
+                      return <div key={key}>{emailError[key]}</div>;
+                    })}
                   </Form.Group>
 
                   <Form.Group>
@@ -88,6 +137,9 @@ export function RegistrationView(props) {
                       onChange={(e) => setBirthdate(e.target.value)}
                       required
                     />
+                    {Object.keys(birthdateError).map((key) => {
+                      return <div key={key}>{birthdateError[key]}</div>;
+                    })}
                   </Form.Group>
                   <Button
                     type="submit"
@@ -107,5 +159,11 @@ export function RegistrationView(props) {
 }
 
 RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
+  register: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    BirthDate: PropTypes.string.isRequired,
+  }),
 };

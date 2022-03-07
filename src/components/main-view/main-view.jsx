@@ -21,9 +21,9 @@ export default class MainView extends React.Component {
     // Initial state is set to null
     this.state = {
       movies: [],
-      selectedMovie: null,
-      user: "",
+      user: null,
       register: true,
+      login: "",
     };
   }
 
@@ -89,7 +89,7 @@ export default class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
+    const { movies, user, register } = this.state;
 
     if (!register)
       return (
