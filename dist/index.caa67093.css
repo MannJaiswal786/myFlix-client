@@ -1,10 +1,10 @@
 .main-view {
-  background-color: bisque;
+  background-color: #021c1e;
   min-height: 100%;
 }
 
 .app-container {
-  background-color: #f28890;
+  background-color: #004445;
 }
 
 html, body {
@@ -16,7 +16,7 @@ html, body {
 }
 
 .card-body {
-  background-color: cornsilk;
+  background-color: #dcffe5;
 }
 
 .btn-success {
