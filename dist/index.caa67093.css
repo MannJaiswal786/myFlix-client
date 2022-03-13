@@ -66,6 +66,9 @@ html, body {
 }
 .movie-view {
   color: aqua;
-  justify-content: center;
+}
+
+.genrelink {
+  color: aqua;
 }
 /*# sourceMappingURL=index.caa67093.css.map */
