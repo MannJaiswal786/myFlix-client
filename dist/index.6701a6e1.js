@@ -40049,7 +40049,7 @@ class MovieCard extends _reactDefault.default.Component {
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                class: "viewinfo",
+                                className: "viewinfo",
                                 variant: "info",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
