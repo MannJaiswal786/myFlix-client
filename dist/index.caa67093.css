@@ -64,5 +64,8 @@ html, body {
 .movie {
   margin: 10px;
 }
-
+.movie-view {
+  color: aqua;
+  justify-content: center;
+}
 /*# sourceMappingURL=index.caa67093.css.map */

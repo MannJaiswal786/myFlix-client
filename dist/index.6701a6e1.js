@@ -28071,7 +28071,7 @@ function RegistrationView(props) {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                             __source: {
                                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 103
+                                                lineNumber: 102
                                             },
                                             __self: this,
                                             children: [
@@ -28079,7 +28079,7 @@ function RegistrationView(props) {
                                                     className: "margin",
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 104
+                                                        lineNumber: 103
                                                     },
                                                     __self: this,
                                                     children: "Password:"
@@ -28094,7 +28094,7 @@ function RegistrationView(props) {
                                                     placeholder: "Password must be 8 or more characters",
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 105
+                                                        lineNumber: 104
                                                     },
                                                     __self: this
                                                 }),
@@ -28102,7 +28102,7 @@ function RegistrationView(props) {
                                                     return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                                         __source: {
                                                             fileName: "src/components/registration-view/registration-view.jsx",
-                                                            lineNumber: 114
+                                                            lineNumber: 113
                                                         },
                                                         __self: this,
                                                         children: passwordError[key]
@@ -28113,7 +28113,7 @@ function RegistrationView(props) {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                             __source: {
                                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 118
+                                                lineNumber: 116
                                             },
                                             __self: this,
                                             children: [
@@ -28121,7 +28121,7 @@ function RegistrationView(props) {
                                                     className: "margin",
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 119
+                                                        lineNumber: 117
                                                     },
                                                     __self: this,
                                                     children: "Email:"
@@ -28135,7 +28135,7 @@ function RegistrationView(props) {
                                                     placeholder: "Enter your email",
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 120
+                                                        lineNumber: 118
                                                     },
                                                     __self: this
                                                 }),
@@ -28143,7 +28143,7 @@ function RegistrationView(props) {
                                                     return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                                         __source: {
                                                             fileName: "src/components/registration-view/registration-view.jsx",
-                                                            lineNumber: 128
+                                                            lineNumber: 126
                                                         },
                                                         __self: this,
                                                         children: emailError[key]
@@ -28154,7 +28154,7 @@ function RegistrationView(props) {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form.Group, {
                                             __source: {
                                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 132
+                                                lineNumber: 129
                                             },
                                             __self: this,
                                             children: [
@@ -28162,7 +28162,7 @@ function RegistrationView(props) {
                                                     className: "margin",
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 133
+                                                        lineNumber: 130
                                                     },
                                                     __self: this,
                                                     children: "Birthdate:"
@@ -28175,7 +28175,7 @@ function RegistrationView(props) {
                                                     required: true,
                                                     __source: {
                                                         fileName: "src/components/registration-view/registration-view.jsx",
-                                                        lineNumber: 134
+                                                        lineNumber: 131
                                                     },
                                                     __self: this
                                                 }),
@@ -28183,7 +28183,7 @@ function RegistrationView(props) {
                                                     return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                                         __source: {
                                                             fileName: "src/components/registration-view/registration-view.jsx",
-                                                            lineNumber: 141
+                                                            lineNumber: 138
                                                         },
                                                         __self: this,
                                                         children: birthdateError[key]
@@ -28191,16 +28191,42 @@ function RegistrationView(props) {
                                                 })
                                             ]
                                         }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                                            __source: {
+                                                fileName: "src/components/registration-view/registration-view.jsx",
+                                                lineNumber: 141
+                                            },
+                                            __self: this
+                                        }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             type: "submit",
-                                            variant: "success",
+                                            variant: "info",
                                             onClick: handleSubmit,
                                             __source: {
                                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                                lineNumber: 144
+                                                lineNumber: 142
                                             },
                                             __self: this,
                                             children: "Register"
+                                        }),
+                                        "\xa0 \xa0",
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                            to: "/",
+                                            __source: {
+                                                fileName: "src/components/registration-view/registration-view.jsx",
+                                                lineNumber: 146
+                                            },
+                                            __self: this,
+                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                variant: "info",
+                                                type: "button",
+                                                __source: {
+                                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                                    lineNumber: 147
+                                                },
+                                                __self: this,
+                                                children: "Already a user? Log in here"
+                                            })
                                         })
                                     ]
                                 })
@@ -39916,23 +39942,50 @@ function LoginView(props) {
                                                 })
                                             ]
                                         }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx("span", {
+                                        /*#__PURE__*/ _jsxRuntime.jsx("br", {
                                             __source: {
                                                 fileName: "src/components/login-view/login-view.jsx",
                                                 lineNumber: 61
                                             },
+                                            __self: this
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                                            __source: {
+                                                fileName: "src/components/login-view/login-view.jsx",
+                                                lineNumber: 62
+                                            },
                                             __self: this,
-                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                                variant: "success",
-                                                type: "submit",
-                                                onClick: handleSubmit,
-                                                __source: {
-                                                    fileName: "src/components/login-view/login-view.jsx",
-                                                    lineNumber: 62
-                                                },
-                                                __self: this,
-                                                children: "Submit"
-                                            })
+                                            children: [
+                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                    variant: "info",
+                                                    type: "submit",
+                                                    onClick: handleSubmit,
+                                                    __source: {
+                                                        fileName: "src/components/login-view/login-view.jsx",
+                                                        lineNumber: 63
+                                                    },
+                                                    __self: this,
+                                                    children: "Login"
+                                                }),
+                                                "\xa0 \xa0",
+                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                                    to: `/register`,
+                                                    __source: {
+                                                        fileName: "src/components/login-view/login-view.jsx",
+                                                        lineNumber: 67
+                                                    },
+                                                    __self: this,
+                                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                        variant: "info link",
+                                                        __source: {
+                                                            fileName: "src/components/login-view/login-view.jsx",
+                                                            lineNumber: 68
+                                                        },
+                                                        __self: this,
+                                                        children: "Not a user? Register here"
+                                                    })
+                                                })
+                                            ]
                                         })
                                     ]
                                 })

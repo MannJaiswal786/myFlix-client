@@ -99,7 +99,6 @@ export function RegistrationView(props) {
                       return <div key={key}>{usernameError[key]}</div>;
                     })}
                   </Form.Group>
-
                   <Form.Group>
                     <Form.Label className="margin">Password:</Form.Label>
                     <Form.Control
@@ -114,7 +113,6 @@ export function RegistrationView(props) {
                       return <div key={key}>{passwordError[key]}</div>;
                     })}
                   </Form.Group>
-
                   <Form.Group>
                     <Form.Label className="margin">Email:</Form.Label>
                     <Form.Control
@@ -128,7 +126,6 @@ export function RegistrationView(props) {
                       return <div key={key}>{emailError[key]}</div>;
                     })}
                   </Form.Group>
-
                   <Form.Group>
                     <Form.Label className="margin">Birthdate:</Form.Label>
                     <Form.Control
@@ -141,13 +138,16 @@ export function RegistrationView(props) {
                       return <div key={key}>{birthdateError[key]}</div>;
                     })}
                   </Form.Group>
-                  <Button
-                    type="submit"
-                    variant="success"
-                    onClick={handleSubmit}
-                  >
+                  <br />
+                  <Button type="submit" variant="info" onClick={handleSubmit}>
                     Register
                   </Button>
+                  &nbsp; &nbsp;
+                  <Link to="/">
+                    <Button variant="info" type="button">
+                      Already a user? Log in here
+                    </Button>
+                  </Link>
                 </Form>
               </Card.Body>
             </Card>
