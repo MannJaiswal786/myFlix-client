@@ -14,6 +14,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { GenreView } from "../genre-view/genre-view";
 
 export default class MainView extends React.Component {
   constructor() {
@@ -91,25 +92,6 @@ export default class MainView extends React.Component {
   render() {
     const { movies, user, register } = this.state;
 
-    if (!register)
-      return (
-        <RegistrationView
-          onRegistration={(register) => this.onRegistration(register)}
-        />
-      );
-
-    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (user === "")
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-
-    <button
-      onClick={() => {
-        this.onLoggedOut();
-      }}
-    >
-      Logout
-    </button>;
-
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
@@ -186,7 +168,7 @@ export default class MainView extends React.Component {
           />
 
           <Route
-            path="/genre/:Name"
+            path="/genres/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
