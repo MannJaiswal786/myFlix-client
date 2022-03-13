@@ -40311,8 +40311,7 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GenreView", ()=>GenreView
-) //export default GenreView;
-;
+);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -40385,6 +40384,7 @@ class GenreView extends _reactDefault.default.Component {
         }));
     }
 }
+exports.default = GenreView;
 
   $parcel$ReactRefreshHelpers$5f0a.postlude(module);
 } finally {

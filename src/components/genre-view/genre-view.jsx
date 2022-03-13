@@ -28,4 +28,4 @@ export class GenreView extends React.Component {
   }
 }
 
-//export default GenreView;
+export default GenreView;
