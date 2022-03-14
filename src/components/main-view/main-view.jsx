@@ -1,4 +1,7 @@
 // myFlix-client/src/main-view/main-view.jsx
+
+// Imports
+// Main View - Home Page
 import React from "react";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
@@ -28,6 +31,7 @@ export default class MainView extends React.Component {
     };
   }
 
+  // Configure the states and the props and display the initial UI access
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
@@ -59,6 +63,7 @@ export default class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  // log out a user to clear out the token and user for the app
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -67,12 +72,14 @@ export default class MainView extends React.Component {
     });
   }
 
+  // register a user
   onRegistration(register) {
     this.setState({
       register,
     });
   }
 
+  // GET movie data fromDB; getMovies methos is called with this.getMovies() in 'onLoggedIn', when right token for username is sent
   getMovies(token) {
     axios
       .get("https://downtown-cinema.herokuapp.com/movies", {
@@ -89,10 +96,13 @@ export default class MainView extends React.Component {
       });
   }
 
+  // Visual representation of the main component:
   render() {
     const { movies, user, register } = this.state;
 
     return (
+      //  All the routes are defined here
+      // Route to the main view after a user logs in
       <Router>
         <Row className="main-view justify-content-md-center">
           <Route
@@ -118,6 +128,8 @@ export default class MainView extends React.Component {
           />
 
           <Route
+            // navigate to the register only when there is no user created
+            // If the user is logged in then is redirected to the main page which is main-view
             path="/register"
             render={() => {
               if (user) return <Redirect to="/" />;
@@ -130,6 +142,7 @@ export default class MainView extends React.Component {
           />
 
           <Route
+            // Display the list of all the movies by it's ID
             path="/movies/:movieId"
             render={({ match, history }) => {
               return (
@@ -144,6 +157,7 @@ export default class MainView extends React.Component {
           />
 
           <Route
+            // Display the director's info inside the director-view which is yet to be implemented
             path="/directors/:Name"
             render={({ match, history }) => {
               if (!user)
@@ -168,6 +182,7 @@ export default class MainView extends React.Component {
           />
 
           <Route
+            // Display the genre's info inside the genre-view which is yet to be implemented
             path="/genres/:name"
             render={({ match, history }) => {
               if (!user)

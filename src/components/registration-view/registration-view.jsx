@@ -1,3 +1,4 @@
+// Import react and bootstrap to use inside the registration view
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -9,15 +10,19 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+// Import Axios to send and receive response from the backend server we coded previously
+// Import link to use the route created inside main view
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+// Set the username, password, email, birthdate
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
 
+  // Data validation to registration form validation
   const [usernameError, setUsernameError] = useState({});
   const [passwordError, setPasswordError] = useState({});
   const [emailError, setEmailError] = useState({});
@@ -45,6 +50,7 @@ export function RegistrationView(props) {
     }
   };
 
+  // Set data validation rules to use inside the registration form
   const formValidation = () => {
     let usernameError = {};
     let passwordError = {};
@@ -52,20 +58,24 @@ export function RegistrationView(props) {
     let birthdateError = {};
     let isValid = true;
 
+    // If the length of the username is less than 4 characters, display an error
     if (username.trim().length < 4) {
       usernameError.usernameShort =
         "Username incorrect. Use at least 4 characters.";
       isValid = false;
     }
+    // If the password length is less than 5 characters, display an error
     if (password.trim().length < 5) {
       passwordError.passwordMissing =
         "Password incorrect. Use at least 5 characters.";
       isValid = false;
     }
+    // Email should include @ symbol to get approved as a correct email address or else display an error
     if (!(email && email.includes(".") && email.includes("@"))) {
       emailError.emailNotEmail = "Email address incorrect.";
       isValid = false;
     }
+    // birthdate shouldn't be empty and should be valid
     if (birthdate === "") {
       birthdateError.birthdateEmpty = "Please enter your birthdate.";
       isValid = false;
@@ -78,6 +88,7 @@ export function RegistrationView(props) {
   };
 
   return (
+    // Render the registration view to display the registration form with data validation
     <Container>
       <Row>
         <Col>
@@ -158,6 +169,7 @@ export function RegistrationView(props) {
   );
 }
 
+// Registration view proptypes
 RegistrationView.propTypes = {
   register: PropTypes.shape({
     Name: PropTypes.string.isRequired,

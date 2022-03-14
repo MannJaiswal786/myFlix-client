@@ -1,3 +1,4 @@
+// Import React, proptypes, react bootstrap to use inside the project file
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
@@ -5,23 +6,28 @@ import { Link } from "react-router-dom";
 
 import "./movie-view.scss";
 
+//
 export class MovieView extends React.Component {
   keypressCallback(event) {
     console.log(event.key);
   }
 
+  // Add a keypress Callback event to go back
   componentDidMount() {
     document.addEventListener("keypress", this.keypressCallback);
   }
 
+  // Remove the Keypress callback event
   componentWillUnmount() {
     document.removeEventListener("keypress", this.keypressCallback);
   }
 
+  // Render the movie view to display
   render() {
     const { movie, onBackClick } = this.props;
 
     return (
+      // Return a div container to display an image, description, genre and director of the movie
       <div className="movie-view movie ">
         <div className="movie-poster">
           <img src={movie.ImagePath} />
@@ -62,6 +68,7 @@ export class MovieView extends React.Component {
   }
 }
 
+// Proptypes for the movie view
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,

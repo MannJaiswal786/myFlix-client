@@ -1,3 +1,4 @@
+// Import all the react components, axios, Link and bootstrap to implement inside out project
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import {
@@ -12,6 +13,10 @@ import {
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// Set the username and Password props and then send request for validating to the server
+// Axios sends a request to the backend for verification, if there is a user with that same username and password,
+// then the axios will come back with a response to log in and give access to the user,
+// if not then it comes up with an error saying no such user
 export function LoginView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +39,8 @@ export function LoginView(props) {
   };
 
   return (
+    // Display the react components added to render a login form
+    // Implement a react container, row, columns and finally a card to display the input text
     <Container>
       <Row>
         <Col>
@@ -80,6 +87,7 @@ export function LoginView(props) {
   );
 }
 
+// Proptypes for login state
 LoginView.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string.isRequired,

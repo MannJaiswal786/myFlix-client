@@ -1,10 +1,15 @@
+//Import React Components to use inside the movie card view
 import React from "react";
 import propTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
+// Link to the router defined inside the main-view
 import { Link } from "react-router-dom";
 
+// Render the movie data inside a react card specifically an Image, Title and Description
+// Add a button to View more info
+// When clicked on view info, navigate to the single movie view component
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
@@ -24,6 +29,7 @@ export class MovieCard extends React.Component {
   }
 }
 
+// Proptypes for the MovieCard state
 MovieCard.propTypes = {
   movie: propTypes.shape({
     Title: propTypes.string.isRequired,
