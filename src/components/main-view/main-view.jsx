@@ -18,7 +18,9 @@ import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { GenreView } from "../genre-view/genre-view";
-
+import { DirectorView } from "../director-view/director-view";
+import { Navbar } from "./../navbar/navbar";
+import { ProfileView } from "../profile-view/profile-view";
 export default class MainView extends React.Component {
   constructor() {
     super();
@@ -30,6 +32,7 @@ export default class MainView extends React.Component {
       login: "",
     };
   }
+  //history = useNavigate()
 
   // Configure the states and the props and display the initial UI access
   componentDidMount() {
@@ -53,13 +56,12 @@ export default class MainView extends React.Component {
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
 
   onLoggedIn(authData) {
-    console.log(authData);
     this.setState({
-      user: authData.user.Username,
+      user: authData.user,
     });
-
     localStorage.setItem("token", authData.token);
-    localStorage.setItem("user", authData.user.Username);
+    localStorage.setItem("user", JSON.stringify(authData.user));
+    localStorage.setItem("username", authData.user.Username);
     this.getMovies(authData.token);
   }
 
@@ -67,6 +69,7 @@ export default class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("username");
     this.setState({
       user: null,
     });
@@ -95,8 +98,55 @@ export default class MainView extends React.Component {
         console.log(error);
       });
   }
+  addMovieToFav(movieId) {
+    let myToken = localStorage.getItem("token");
+    let username = localStorage.getItem("username");
+    if (myToken !== null) {
+      let token = {
+        headers: { Authorization: `Bearer ${myToken}` },
+      };
+      var config = {
+        method: "post",
+        url: `https://downtown-cinema.herokuapp.com/users/${username}/movies/${movieId}`,
+        headers: {
+          Authorization: `Bearer ${myToken}`,
+        },
+      };
+      axios(config)
+        .then((response) => {
+          getMovies(myToken);
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
 
-  // Visual representation of the main component:
+  deleteMovieFromFav(movieId) {
+    let myToken = localStorage.getItem("token");
+    let username = localStorage.getItem("username");
+    if (myToken !== null) {
+      let token = {
+        headers: { Authorization: `Bearer ${myToken}` },
+      };
+      var config = {
+        method: "delete",
+        url: `https://downtown-cinema.herokuapp.com/users/${username}/movies/${movieId}`,
+        headers: {
+          Authorization: `Bearer ${myToken}`,
+        },
+      };
+      axios(config)
+        .then((response) => {
+          getMovies(myToken);
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
   render() {
     const { movies, user, register } = this.state;
 
@@ -104,6 +154,7 @@ export default class MainView extends React.Component {
       //  All the routes are defined here
       // Route to the main view after a user logs in
       <Router>
+        <Navbar onLoggedOut={this.onLoggedOut} />
         <Row className="main-view justify-content-md-center">
           <Route
             exact
@@ -121,7 +172,12 @@ export default class MainView extends React.Component {
               if (movies.length === 0) return <div className="main-view" />;
               return movies.map((m) => (
                 <Col md={4} key={m._id}>
-                  <MovieCard movie={m} />
+                  <MovieCard
+                    movie={m}
+                    user={user}
+                    deleteMovieFromFav={this.deleteMovieFromFav}
+                    addMovieToFav={this.addMovieToFav}
+                  />
                 </Col>
               ));
             }}
@@ -145,6 +201,14 @@ export default class MainView extends React.Component {
             // Display the list of all the movies by it's ID
             path="/movies/:movieId"
             render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Row>
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  </Row>
+                );
               return (
                 <Col md={8}>
                   <MovieView
@@ -158,21 +222,22 @@ export default class MainView extends React.Component {
 
           <Route
             // Display the director's info inside the director-view which is yet to be implemented
-            path="/directors/:Name"
+            path="/director/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
-                  <Col>
-                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                  </Col>
+                  <Row>
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  </Row>
                 );
-              if (movies.length === 0) return <div className="main-view" />;
+              let paramName = match.params.name.replace("%20", " ");
               return (
                 <Col md={8}>
                   <DirectorView
                     director={
-                      movies.find((m) => m.Director.Name === match.params.name)
-                        .Director
+                      movies.find((m) => m.Director.Name == paramName).Director
                     }
                     onBackClick={() => history.goBack()}
                   />
@@ -180,26 +245,51 @@ export default class MainView extends React.Component {
               );
             }}
           />
-
           <Route
-            // Display the genre's info inside the genre-view which is yet to be implemented
-            path="/genres/:name"
+            // Display the list of all the movies by it's ID
+            path="/genre/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
-                  <Col>
-                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                  </Col>
+                  <Row>
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  </Row>
                 );
-              if (movies.length === 0) return <div className="main-view" />;
               return (
                 <Col md={8}>
                   <GenreView
                     genre={
-                      movies.find((m) => m.Genre.Name === match.params.name)
+                      movies.find((m) => m.Genre.Name == match.params.name)
                         .Genre
                     }
                     onBackClick={() => history.goBack()}
+                  />
+                </Col>
+              );
+            }}
+          />
+          <Route
+            // Display the list of all the movies by it's ID
+            path="/profile"
+            render={({ match, history }) => {
+              if (!user)
+                return (
+                  <Row>
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  </Row>
+                );
+              return (
+                <Col md={8}>
+                  <ProfileView
+                    movies={movies}
+                    user={user}
+                    onBackClick={() => history.goBack()}
+                    deleteMovieFromFav={this.deleteMovieFromFav}
+                    addMovieToFav={this.addMovieToFav}
                   />
                 </Col>
               );

@@ -71,4 +71,60 @@ html, body {
 .genrelink {
   color: aqua;
 }
+.genre-view {
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 0.3px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.director-view {
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 0.3px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.navbar {
+  background-color: steelblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-list li {
+  margin-right: 10px;
+}
+
+.nav-link:hover {
+  color: steelblue;
+}
+.profile-view {
+  padding: 30px;
+  margin-bottom: 30px;
+  border: 0.3px solid grey;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 /*# sourceMappingURL=index.caa67093.css.map */

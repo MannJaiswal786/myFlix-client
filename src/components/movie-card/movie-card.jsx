@@ -12,17 +12,39 @@ import { Link } from "react-router-dom";
 // When clicked on view info, navigate to the single movie view component
 export class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    const { movie, addMovieToFav, user, deleteMovieFromFav } = this.props;
+    console.log(user);
     return (
       <Card>
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Link to={`/movies/${movie._id}`}>
-            <Button className="viewinfo" variant="info">
+            <Button className="viewinfo mt-4" variant="info">
               View Info
             </Button>
           </Link>
+          {user.FavoriteMovies && user.FavoriteMovies.includes(movie._id) ? (
+            <Button
+              onClick={() => {
+                deleteMovieFromFav(movie._id);
+              }}
+              className="viewinfo ml-2 mt-4"
+              variant="info"
+            >
+              Remove from favorite
+            </Button>
+          ) : (
+            <Button
+              onClick={() => {
+                addMovieToFav(movie._id);
+              }}
+              className="viewinfo ml-4 mt-4"
+              variant="info"
+            >
+              Add to favorite
+            </Button>
+          )}
         </Card.Body>
       </Card>
     );
