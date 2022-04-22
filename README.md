@@ -26,5 +26,7 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 ### Profile View
 ● Allows users to add/ remove a movie from their list of favorites
 
+## Technical Requirements used for building the project
+
 
 
