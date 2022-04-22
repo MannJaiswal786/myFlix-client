@@ -36,7 +36,7 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 * The application must use Bootstrap as a UI library for styling and responsiveness 
 * The application must contain a mix of class components and function component
 
-##Technologies Learned:
+## Technologies Learned:
 * Basic to Advanced Javascript
 * Javascript Libraries and Frameworks
 * Web Server Frameworks
@@ -47,6 +47,9 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 * Web Ethics and Data Security
 * Test-Driven Development
 * Documentation, Handoffs, and Collaborative Working
+Tech is where I want to be and due to such high demand for web developers, is the main reason I learned and practiced the above technologies and built a full stack application for my senior project. 
+
+##
 
 
 
