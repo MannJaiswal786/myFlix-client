@@ -49,7 +49,16 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 * Documentation, Handoffs, and Collaborative Working
 Tech is where I want to be and due to such high demand for web developers, is the main reason I learned and practiced the above technologies and built a full stack application for my senior project. 
 
-##
+## Technical Approach:
+### Server-Side:
+I create a RESTful API using Node.js and Express, that interacts with a non-relational database (MongoDB). The API can be accessed via commonly used HTTP methods like GET or POST. To retrieve data from and store data in database, CRUD methods are used. The API provides movie information in JSON format.
+
+To text the API, I used Postman, I also included user authentication and authorization code in the form of basic HTTP authentication and JWT authentication.
+
+### Client-Side:
+After completing the API, I started to build the interface users would need when making requests to, and receiving responses from, the server side. It is a single-page, responsive application, developed with React. It provides several interface views, including, but not limited to, a main view (shows a list of all movies), single movie view (shows data about a single movie and allows users to add the movie to their list of favorites), a login view, registration view and a profile view (where users can update their user data and list of favorites).
+
+
 
 
 
