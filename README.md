@@ -36,6 +36,20 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 * The application must use Bootstrap as a UI library for styling and responsiveness 
 * The application must contain a mix of class components and function component
 
+##Technologies Learned:
+* Basic to Advanced Javascript
+* Javascript Libraries and Frameworks
+* Web Server Frameworks
+* Node.js and Server-Side Programming
+* Relational and Non-Relational Databases
+* Data Visualization
+* Functional and Object-Oriented Programming
+* Web Ethics and Data Security
+* Test-Driven Development
+* Documentation, Handoffs, and Collaborative Working
+
+
+
 
 
 
