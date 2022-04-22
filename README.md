@@ -26,7 +26,7 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 ### Profile View
 ● Allows users to add/ remove a movie from their list of favorites
 
-## Technical Requirements used for building the project
+## Technical Requirements and Industry based practices used to develop the project:
 * The application must be a single-page application (SPA) 
 * The application must use state routing to navigate between views and share URLs 
 * The application must give users the option to filter movies 
