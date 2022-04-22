@@ -1,5 +1,7 @@
 # myFlix-client
 
+## Link to my Personal Portfolio: https://mannjaiswal.000webhostapp.com/index.html
+
 ## Introduction to the project:
 Downtown Cinema is a web application, developed using the MERN stack, that provides users with access to information about movies, directors, and genres. Users are able to create a list of favorite movies, delete them and also view their profile. The purpose and context of this project was to demonstrate my mastery of full stack JavaScript devlopment.
 
@@ -57,6 +59,17 @@ To text the API, I used Postman, I also included user authentication and authori
 
 ### Client-Side:
 After completing the API, I started to build the interface users would need when making requests to, and receiving responses from, the server side. It is a single-page, responsive application, developed with React. It provides several interface views, including, but not limited to, a main view (shows a list of all movies), single movie view (shows data about a single movie and allows users to add the movie to their list of favorites), a login view, registration view and a profile view (where users can update their user data and list of favorites).
+
+## Challenges and Risks:
+I faced a lot of challenges while building this application. Some of them include implementing JWT token authentication and authorization, styling implementation to front end and connecting databases particularly MongoDB as I had no experience in non relational databases. I overcame the challenges by communicating with my Professors and learning from my peers from class and collaboring on other projects to learn new technologies.
+
+## Outstanding issues:
+* Users must have to refresh the page to logout
+* Users must refresh the webpage to add/remove favorite movies inside the favorites list
+
+## How I could approach these problems:
+I plan to use react redux in my project in summer to get the issues resolved. Thank you
+
 
 
 
