@@ -1,2 +1,5 @@
 # myFlix-client
-The UI of myFlix is built using the React library. The interface views will handle data requested by the user through the REST API endpoints defined above.
+
+## Introduction to the project:
+Downtown Cinema is a web application, developed using the MERN stack, that provides users with access to information about movies, directors, and genres. Users are able to create a list of favorite movies, delete them and also view their profile.
+
