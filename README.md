@@ -24,7 +24,7 @@ The aim of the project was to have an ambitious full-stack project that I can ad
 ● Returns data about a director (name, bio, birth year, death year)
 ● Displays example movies
 ### Profile View
-* Allows users to add/ remove a movie from their list of favorites
+● Allows users to add/ remove a movie from their list of favorites
 
 
 
